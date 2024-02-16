@@ -32,6 +32,14 @@ export class CoursesComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.courses$.subscribe({
+      next: courses => {
+        console.log('Cursos:', courses); // Aqui você recebe os cursos e pode fazer o log
+      },
+      error: err => {
+        console.error('Ocorreu um erro ao carregar os cursos:', err);
+      }
+    });
   }
 
   // onError(errorMsg: string){
